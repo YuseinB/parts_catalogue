@@ -15,7 +15,7 @@ def add_part(request):
         form = PartForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')  # Пренасочете потребителя към вашата индексна страница или друга страница по ваш избор
+            return redirect('index')
     else:
         form = PartForm()
     return render(request, 'add_part.html', {'form': form})
@@ -26,7 +26,7 @@ def add_category(request):
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')  # Пренасочете потребителя към вашата индексна страница или друга страница по ваш избор
+            return redirect('index')
     else:
         form = CategoryForm()
     return render(request, 'add_category.html', {'form': form})

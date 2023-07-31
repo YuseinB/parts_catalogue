@@ -10,7 +10,7 @@ def register_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')  # Редирект след успешна регистрация
+            return redirect('index')
     else:
         form = UserCreationForm()
 
@@ -23,7 +23,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('index')  # Редирект след успешно логинване
+            return redirect('index')
     else:
         form = AuthenticationForm(request)
 
@@ -41,7 +41,7 @@ def edit_profile(request):
         form = UserEditForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('index')  # Пренасочете потребителя към вашата индексна страница или друга страница по ваш избор
+            return redirect('index')
     else:
         form = UserEditForm(instance=request.user)
     return render(request, 'edit_profile.html', {'form': form})
