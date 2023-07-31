@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="us">
+<head>
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% block content %}
+    <h1>Добре дошли на индексната страница!</h1>
+
+    {% if user.is_authenticated %}
+        <p>Здравей, {{ user.username }}!</p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p>Моля, влезте в системата, за да видите повече информация.</p>
+        <p><a href="{% url 'login' %}">Login</a></p>
+        <p><a href="{% url 'register' %}">Register</a></p>
+    {% endif %}
+
+    <!-- Добавете още HTML съдържание по ваш избор -->
+{%  endblock %}
+</body>
+</html>
