@@ -3,6 +3,7 @@ from django.urls import path, include
 from .errors.views import handler404
 from parts_catalogue.web import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),

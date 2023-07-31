@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>404 Not Found</title>
-</head>
-<body>
+{% extends 'index.html' %}
+
+{% block title %}404 error{% endblock %}
+
+{% block content %}
     <h1>Грешка 404 - Страницата не е намерена</h1>
     <p>Изглежда, че страницата, която търсите, не съществува. Моля, проверете въведения URL адрес.</p>
-</body>
-</html>
+{% endblock %}
