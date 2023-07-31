@@ -7,19 +7,30 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
+<div class="header">
+  <a href="{% url 'index'%}"><img alt="Home" class="header" src="{% static 'pictures/home-removebg-preview.png' %}"></a>
+    <a href="{% url 'login' %}"><img alt="Login" class="header" style="float: right" src="{% static 'pictures/login_icon.png' %}"></a>
+</div>
 {% block content %}
-    <h1>Добре дошли на индексната страница!</h1>
 
+    <p>Добре дошли на индексната страница!</p>
+
+<ul>
     {% if user.is_authenticated %}
         <p>Здравей, {{ user.username }}!</p>
-        <p><a href="{% url 'logout' %}">Logout</a></p>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
         <p>Моля, влезте в системата, за да видите повече информация.</p>
-        <p><a href="{% url 'login' %}">Login</a></p>
-        <p><a href="{% url 'register' %}">Register</a></p>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
     {% endif %}
+</ul>
 
     <!-- Добавете още HTML съдържание по ваш избор -->
 {%  endblock %}
+
+<div class="footer">
+  <p>&copy; Ribanec 2023</p>
+</div>
 </body>
 </html>

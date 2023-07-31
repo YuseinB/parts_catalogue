@@ -1,3 +1,17 @@
-button{
-    font-size: 24px;
+img.header{
+  height: 60px;
+}
+
+div.header{
+  background-color: lightblue;
+  padding-top: 5px;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: lightblue;
+   color: black;
+   text-align: center;
 }

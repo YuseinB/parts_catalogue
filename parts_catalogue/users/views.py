@@ -8,7 +8,7 @@ def register_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('my_public_page')  # Редирект след успешна регистрация
+            return redirect('index')  # Редирект след успешна регистрация
     else:
         form = UserCreationForm()
 
@@ -21,7 +21,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('my_public_page')  # Редирект след успешно логинване
+            return redirect('index')  # Редирект след успешно логинване
     else:
         form = AuthenticationForm(request)
 
