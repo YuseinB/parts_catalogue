@@ -6,21 +6,22 @@
     <title>{% block title %}Home{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body style="background-image: url({% static 'pictures/body.png' %});">
 <div class="header">
   <a href="{% url 'index'%}"><img alt="Home" class="header" src="{% static 'pictures/home-removebg-preview.png' %}"></a>
     <a href="{% url 'login' %}"><img alt="Login" class="header" style="float: right" src="{% static 'pictures/login_icon.png' %}"></a>
 </div>
 {% block content %}
 
-    <p>Добре дошли на индексната страница!</p>
+    <h3>Welcome! Parts Catalogue</h3>
 
 <ul>
     {% if user.is_authenticated %}
-        <p>Здравей, {{ user.username }}!</p>
+        <p>Hi!, {{ user.username }}</p>
+        <li><a href="{% url 'user_edit' %}">Change</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-        <p>Моля, влезте в системата, за да видите повече информация.</p>
+        <p>Please login to view more information.</p>
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
     {% endif %}

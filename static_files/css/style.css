@@ -1,3 +1,19 @@
+
+body{
+    background-color: cadetblue;
+  background-blend-mode: screen;
+}
+
+input{
+    font-size: 22px;
+    margin: 4px;
+}
+
+button{
+    font-size: 22px;
+    padding: 6px;
+}
+
 img.header{
   height: 60px;
 }

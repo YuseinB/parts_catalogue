@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}Change profile{% endblock %}
+
+{% block content %}
+    <h1>Change profile</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for fields in form %}
+        <label>{{ fields.label_tag }}</label><br>
+        {{ fields }}
+            <br>
+            {{ fields.errors }}
+        {% endfor %}
+
+        <button type="submit">Change</button>
+    </form>
+{% endblock %}

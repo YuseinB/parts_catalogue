@@ -20,3 +20,9 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError("Паролите не съвпадат!")
 
         return cleaned_data
+
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']
