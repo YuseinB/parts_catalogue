@@ -3,10 +3,12 @@
 {% block title %}Add Category{% endblock %}
 
 {% block content %}
-    <h1>Add Category</h1>
+        <div class="form">
+    <h3>Add Category</h3>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Add</button>
     </form>
+        </div>
 {% endblock %}

@@ -3,10 +3,16 @@
 {% block title %}Add Part{% endblock %}
 
 {% block content %}
-    <h1>Add Part</h1>
+    <div class="form">
+    <h3>Add Part</h3>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Запази</button>
+        {% for field in form %}
+            {{ field.label_tag }}<br>
+        {{ field }}<br>
+            {{ field.errors }}<br>
+        {% endfor %}
+        <button type="submit">Save</button>
     </form>
+    </div>
 {% endblock %}

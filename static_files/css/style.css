@@ -4,10 +4,16 @@ body{
   background-blend-mode: screen;
 }
 
+a{
+    text-decoration: none;
+    color: darkslateblue;
+}
+
 input{
-    font-size: 22px;
+    width: 70%;
+    font-size: 20px;
     margin: 4px;
-    border-radius: 8px;
+    padding: 4px;
 }
 
 select{
@@ -19,8 +25,21 @@ textarea{
 }
 
 button{
-    font-size: 22px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4d9a9c;
+    width: 40%;
+    font-size: 20px;
     padding: 6px 15px 6px 15px;
+    border-radius: unset;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: #4d9a9c;
+    color: white;
+    border: 2px solid darkgray;
+
 }
 
 img.header{
@@ -31,6 +50,19 @@ div.header{
   background-color: lightblue;
   padding-top: 5px;
     opacity: 0.8;
+}
+
+.form{
+    box-shadow:  0 0 15px 15px darkgray;
+    margin: auto;
+    margin-top: 40px;
+  width: 30%;
+  padding: 10px;
+    background-color: cadetblue;
+  background-blend-mode: screen;
+}
+.search{
+    width: 300px;
 }
 .footer {
    position: fixed;

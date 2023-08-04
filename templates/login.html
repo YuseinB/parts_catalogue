@@ -3,16 +3,23 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+    <div class="form">
     {% if user.is_authenticated %}
-        <h2>Здравей, {{ user.username }}!</h2>
-        <p><a href="{% url 'logout' %}">Изход</a></p>
+        <h2>Hi! {{ user.username }}</h2>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
     {% else %}
-        <h2>Login</h2>
+        <h3>Login</h3>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {% for field in form %}
+                {{ field.label_tag }}<br>
+            {{ field }}<br>
+                {{ field.errors }}<br>
+
+            {% endfor %}
             <button type="submit">Login</button>
         </form>
-        <p><a href="{% url 'register' %}">Регистрирай се</a></p>
+        <p><a href="{% url 'register' %}">Register</a></p>
     {% endif %}
+    </div>
 {% endblock %}

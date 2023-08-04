@@ -3,6 +3,7 @@
 {% block title %}Change profile{% endblock %}
 
 {% block content %}
+    <div class="form">
     <h1>Change profile</h1>
     <form method="post">
         {% csrf_token %}
@@ -11,8 +12,10 @@
         {{ fields }}
             <br>
             {{ fields.errors }}
+            <br>
         {% endfor %}
 
         <button type="submit">Change</button>
     </form>
+    </div>
 {% endblock %}
