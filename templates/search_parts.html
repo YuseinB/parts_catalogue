@@ -1,29 +1,34 @@
 {% include 'index.html' %}
+
 {% block content %}
 
-    <p>Търсене на части</p>
     <form class="search" method="get">
-        <input type="text" name="q" value="{{ query }}">
-        <button type="submit">Търси</button>
+        <input type="text" name="q" value="">
+        <button type="submit">Search</button>
     </form>
     <table>
         <tr>
-            <th>Име на част</th>
-            <th>Линк към снимка</th>
-            <th>Коментар</th>
-            <th>Категория</th>
+        {% if parts %}
+            <th>Name</th>
+            <th>Link</th>
+            <th>Comment</th>
+            <th>Category</th>
+             {% if user.is_authenticated %}<th>Available</th>{% endif %}
         </tr>
+    {% endif %}
         {% for part in parts %}
         <tr>
-            <td>{{ part.name }}</td>
-            <td>{{ part.image_link }}</td>
+            <td><a href="{% url 'part_detail' part.pk %}">{{ part.name }}</a></td>
+            <td><img alt="{{ part.name }}" style="width: 150px" src="{{ part.image_link }}"></td>
             <td>{{ part.comment }}</td>
             <td>{{ part.category }}</td>
+            {% if user.is_authenticated %}<td>{{ part.available }}</td>{% endif %}
         </tr>
         {% empty %}
         <tr>
-            <td colspan="4">Няма намерени части</td>
+            <td colspan="4">No parts found</td>
         </tr>
         {% endfor %}
     </table>
+    <br><br><br>
 {% endblock %}

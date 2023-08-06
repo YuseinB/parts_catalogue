@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}Add Part{% endblock %}
+
+{% block content %}
+    <h3>{{ part.category }}</h3>
+    <p>{{ part.name }}</p>
+    <img alt="{{ part.name }}" style="width: 300px" src="{{ part.image_link }}">
+    <p>{{ part.comment }}</p>
+    {% if user.is_authenticated %}
+    <p>Available / {{ part.available }}</p>
+    {% endif %}
+    <br><br><br>
+{% endblock %}

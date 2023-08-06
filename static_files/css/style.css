@@ -6,7 +6,17 @@ body{
 
 a{
     text-decoration: none;
-    color: darkslateblue;
+    color: black;
+}
+a:hover{
+    color: white;
+}
+li{
+    font-size: 20px;
+}
+td{
+    border: white 1px double;
+    background-color: cadetblue;
 }
 
 input{

@@ -7,5 +7,5 @@ def search_parts(request):
     if query:
         parts = Part.objects.filter(name__icontains=query)
     else:
-        parts = Part.objects.all()
+        parts = None
     return render(request, 'search_parts.html', {'parts': parts, 'query': query})

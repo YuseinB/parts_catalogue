@@ -11,27 +11,34 @@
 <body style="background-image: url({% static 'pictures/body.png' %});">
 <div class="header">
   <a href="{% url 'index'%}"><img alt="Home" class="header" src="{% static 'pictures/home-removebg-preview.png' %}"></a>
-    <a href="{% url 'login' %}"><img alt="Login" class="header" style="float: right" src="{% static 'pictures/login_icon.png' %}"></a>
-</div>
-{% block content %}
-
-    <h3>Welcome! Parts Catalogue</h3>
-
-<ul>
     {% if user.is_authenticated %}
-        <p>Hi!, {{ user.username }}</p>
+    <h3 style="float: right; padding-right: 10px">Hi!, {{ user.username }}</h3>
+    {% else %}
+    <a href="{% url 'login' %}"><img alt="Login" class="header" style="float: right" src="{% static 'pictures/login_icon.png' %}"></a>
+    {% endif %}
+</div>
+
+<ul style="float: right">
+    {% if user.is_authenticated %}
+
         <li><a href="{% url 'add_category' %}">Add category</a></li>
         <li><a href="{% url 'add_part' %}">Add part</a></li>
         <li><a href="{% url 'user_edit' %}">Change profile</a></li>
+        <li><a href="{% url 'change_password' %}">Change password</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-        <p>Please login to view more information.</p>
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
+
     {% endif %}
 </ul>
+
+{% block content %}
+
+    <h3 style="float: left">Welcome! Parts Catalogue</h3>
+
+
 {%  endblock %}
-<br><br><br>
 <div class="footer">
   <p>&copy; Ribanec 2023</p>
 </div>
