@@ -11,8 +11,15 @@ a{
 a:hover{
     color: white;
 }
+
+ul{
+    border: white 1px double;
+    padding: 10px 10px 10px 35px;
+    background-color: cadetblue;
+}
+
 li{
-    font-size: 20px;
+    font-size: 18px;
 }
 td{
     border: white 1px double;
