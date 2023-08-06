@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="form">
-    <h1>Change profile</h1>
+    <h3>Change profile</h3>
     <form method="post">
         {% csrf_token %}
         {% for fields in form %}
@@ -18,5 +18,4 @@
         <button type="submit">Change</button>
     </form>
     </div>
-    <br><br><br>
 {% endblock %}
