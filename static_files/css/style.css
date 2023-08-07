@@ -14,9 +14,10 @@ a:hover{
 }
 
 ul{
-    border: white 1px double;
+
     padding: 10px 10px 10px 35px;
     background-color: cadetblue;
+    box-shadow:  0 0 5px 5px darkgray;
 }
 
 li{
