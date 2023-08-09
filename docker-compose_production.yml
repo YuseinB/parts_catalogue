@@ -11,6 +11,8 @@ services:
       - ./envs/.env
     volumes:
       - /tmp/parts_catalogue/static:/app/static
+    links:
+      - postgres
   postgres:
     image: postgres
     restart: always
