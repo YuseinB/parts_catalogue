@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(b5#^@hpl^zm+&nx11usibm@cljh4atuurvjj*3ynoak4-))%-'
+SECRET_KEY = os.environ.get('SECRET_KEY', None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'parts_catalogue.users',
     'parts_catalogue.web',
     'parts_catalogue.errors',
+    'parts_catalogue.search',
 ]
 
 MIDDLEWARE = [
@@ -58,8 +59,7 @@ ROOT_URLCONF = 'parts_catalogue.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'parts_catalogue.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "parts_db",
-        "USER": "postgres-admin",
-        "PASSWORD": "adminss",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "NAME": os.getenv('DB_NAME', 'parts_db'),
+        "USER": os.getenv('DB_USER', 'postgres-admin'),
+        "PASSWORD": os.getenv('DB_PASSWORD', 'adminss'),
+        "HOST": os.getenv('DB_HOST', '127.0.0.1'),
+        "PORT": os.getenv('DB_PORT', 5432),
     }
 }
 
@@ -128,6 +128,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static_files',
 )
+
+STATIC_ROOT = os.environ.get('STATIC_ROOT', BASE_DIR / 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
