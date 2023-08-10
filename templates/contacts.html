@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% load i18n %}  <!-- Зарежда таговете за превод -->
+
+{% block title %}{% trans "Contacts!" %}{% endblock %}
+
+{% block content %}
+    <h3>{% trans "Contacts!" %}</h3>
+
+    <ul style="box-shadow: none; background: none;">
+        <li>{% trans "str. 'Example' Sofia 1000" %}</li>
+        <li>{% trans "example@example.com" %}</li>
+        <li>{% trans "+359 123" %}</li>
+    </ul>
+{% endblock %}

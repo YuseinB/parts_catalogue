@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% load i18n %}  <!-- Зарежда таговете за превод -->
+
+{% block title %}{% trans "Who We Are!" %}{% endblock %}
+
+{% block content %}
+    <h3>{% trans "Who are we!" %}</h3>
+
+    <p>{% trans "Hello!" %}</p>
+    <p>{% trans "We are students at SoftUni." %}</p>
+    <p>{% trans "We love challenges, and that's why:" %}</p>
+    <ul style="box-shadow: none; background: none;">
+        <li>{% trans "We dive into the deep waters of programming" %}</li>
+        <li>{% trans "We hate wasting time" %}</li>
+        <li>{% trans "The impossible captures our attention" %}</li>
+        <li>{% trans "The usefulness of our work is leading" %}</li>
+        <li>{% trans "Programming brings us joy" %}</li>
+    </ul>
+{% endblock %}

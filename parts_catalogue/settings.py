@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'parts_catalogue.errors.views.CustomErrorMiddleware',
 ]
 
 ROOT_URLCONF = 'parts_catalogue.urls'
@@ -81,10 +83,10 @@ WSGI_APPLICATION = 'parts_catalogue.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv('DB_NAME', 'parts_db'),
-        "USER": os.getenv('DB_USER', 'postgres-admin'),
-        "PASSWORD": os.getenv('DB_PASSWORD', 'adminss'),
-        "HOST": os.getenv('DB_HOST', '127.0.0.1'),
+        "NAME": os.getenv('DB_NAME', None),
+        "USER": os.getenv('DB_USER', None),
+        "PASSWORD": os.getenv('DB_PASSWORD', None),
+        "HOST": os.getenv('DB_HOST', None),
         "PORT": os.getenv('DB_PORT', 5432),
     }
 }

@@ -13,6 +13,16 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+class Contacts(View):
+    def get(self, request):
+        return render(request, 'contacts.html')
+
+
+class WhoAreWe(View):
+    def get(self, request):
+        return render(request, 'whe_are.html')
+
+
 class PartDetailView(View):
     template_name = 'part_detail.html'
 
