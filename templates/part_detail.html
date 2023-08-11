@@ -9,5 +9,8 @@
     <p>{{ part.comment }}</p>
     {% if user.is_authenticated %}
     <p>Available / {{ part.available }}</p>
+        {% if user.is_superuser %}
+            <a href="{% url 'edit_part' part.pk %}">Edit Part</a>
+        {% endif %}
     {% endif %}
 {% endblock %}

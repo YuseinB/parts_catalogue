@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PartForm, CategoryForm
 from django.contrib.auth.decorators import login_required
 from django.views import View
@@ -31,7 +31,7 @@ class PartDetailView(View):
         return render(request, self.template_name, {'part': part})
 
 
-@login_required()
+@login_required
 def add_part(request):
     if request.method == 'POST':
         form = PartForm(request.POST)
@@ -43,7 +43,22 @@ def add_part(request):
     return render(request, 'add_part.html', {'form': form})
 
 
-@login_required()
+@login_required
+def edit_part(request, pk):
+    part = get_object_or_404(Part, pk=pk)
+
+    if request.method == 'POST':
+        form = PartForm(request.POST, instance=part)
+        if form.is_valid():
+            form.save()
+            return redirect('part_detail', pk=pk)  # Променете 'part_detail' с името на вашия изглед за детайли на частта
+    else:
+        form = PartForm(instance=part)
+
+    return render(request, 'edit_part.html', {'form': form})
+
+
+@login_required
 def add_category(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
