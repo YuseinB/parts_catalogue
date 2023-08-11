@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-from .errors.views import CustomErrorMiddleware
 from .web.views import index, WhoAreWe, Contacts
 from .search.views import search_parts
 
@@ -14,4 +13,4 @@ urlpatterns = [
     path('web/', include('parts_catalogue.web.urls')),
     path('errors/', include('parts_catalogue.errors.urls')),
 ]
-handler404 = CustomErrorMiddleware
+

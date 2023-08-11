@@ -21,7 +21,7 @@
 <ul style="float: right">
     {% if user.is_authenticated %}
 
-        <li><a href="{% url 'add_category' %}">Add category</a></li>
+       {% if user.is_superuser %} <li><a href="{% url 'add_category' %}">Add category</a></li> {% endif %}
         <li><a href="{% url 'add_part' %}">Add part</a></li>
         <li><a href="{% url 'user_edit' %}">Change profile</a></li>
         <li><a href="{% url 'change_password' %}">Change password</a></li>

@@ -52,8 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'parts_catalogue.errors.views.CustomErrorMiddleware',
 ]
 
 ROOT_URLCONF = 'parts_catalogue.urls'
