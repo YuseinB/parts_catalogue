@@ -23,7 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+debug_value = os.environ.get("DEBUG")
+if debug_value is not None and debug_value.lower() == "true":
+    bool_debug = True
+else:
+    bool_debug = False
+
+DEBUG = bool_debug
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
 
